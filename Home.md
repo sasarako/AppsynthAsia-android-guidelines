@@ -1,5 +1,5 @@
 # READ ME 
-most of our conventions in this site come from [ribot/android-guidelines](https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md) but some parts of it are difference. To make it easy to read all conventions in one site (no need to swap between 2 sites), I put the some parts of them in here but if you want to see the original site you can see this [link](https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md).
+most of our conventions in this site come from [ribot/android-guidelines](https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md) but some parts of them are different. To make it easy to read all conventions in one site (no need to swap between 2 sites), I put the some parts of them in here but if you want to see the original site you can walk through in this [link](https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md).
 
 # 1. Project guidelines
 ## 1.1 Project structure
