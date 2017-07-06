@@ -59,6 +59,9 @@ Naming conventions for drawables:
 | Any other image | `img_`         | `img_nonservice.9.png`     |                                                      |
 | black ground    | `bg_`          | `bg_nonservice.9.png`      |                                                      |
 | button blackground    | `bg_btn_`          | `bg_btn_nonservice.9.png`      |                                                      |
+| radio    | `radio_`          | `radio_choise.9.png`      |                                                      |
+| Checkbox    | `checkbox_`          | `checkbox_choise.9.png`      |                                                      |
+
 
 Naming conventions for icons (taken from [Android iconography guidelines](https://material.io/guidelines/style/icons.html)):
 
