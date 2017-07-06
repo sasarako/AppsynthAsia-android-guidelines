@@ -511,7 +511,7 @@ open class MyClass {
 }
 ```
 ### 2.3.2 Getters and Setters
-In Kotlin we don't need to create getters and setters method for property. It already has syntax for declaring a property is
+In Kotlin we **don't need** to create getters and setters method for property. It already has syntax for declaring a property is
 
 ```kotlin
 var <propertyName>[: <PropertyType>] [= <property_initializer>]
