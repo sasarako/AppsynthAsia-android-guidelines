@@ -545,8 +545,31 @@ recyclerView.apply {
 }
 ```
 
-## 2.4 XML style rules
-### 2.3.1 Use self closing tags
+## 2.4 Functions
+### 2.4.1 Functions
+When a function signature does not fit on a single line, break each parameter declaration onto its own line. Parameters defined in this format should use a continuation indent (+8). The closing parenthesis ()) and return type are placed on their own line with no additional indent.
+```Kotlin
+fun <T> Iterable<T>.joinToString(
+        separator: CharSequence = ", ",
+        prefix: CharSequence = "",
+        postfix: CharSequence = ""
+): String {
+    // …
+}
+```
+### 2.4.2 Expression functions
+When a function contains only a single expression it can be represented as an expression function.
+```Kotlin
+override fun toString(): String {
+    return "Hey"
+}
+```
+```Kotlin
+override fun toString(): String = "Hey"
+```
+
+## 2.5 XML style rules
+### 2.5.1 Use self closing tags
 When an XML element doesn't have any contents, you **must** use self closing tags.
 
 This is good:
@@ -565,9 +588,9 @@ This is **bad**:
     android:layout_height="wrap_content" >
 </TextView>
 ```
-### 2.3.2 Resources naming
+### 2.5.2 Resources naming
 
-**2.3.2.1 Resources ID naming in Java**
+**2.5.2.1 Resources ID naming in Java**
 
 Resource IDs are written in [**camelCase**](https://en.wikipedia.org/wiki/Camel_case) with **underscore**. The IDs should generally start with the **feature's name**, followed by a **view's name** (that you want) and end with **view type** and all of this part must separate by **underscore**.
 
@@ -580,7 +603,7 @@ Template: **`featureName_viewName_viewType`**.
 | `Button`    | `coupon_redeem_button`            |
 | `Menu`      | `home_aboutUs_menu`               |
 
-**2.3.2.2 Resources ID in Kotlin**
+**2.5.2.2 Resources ID in Kotlin**
 
 Resource IDs are written in [camelCase](https://en.wikipedia.org/wiki/Camel_case). The IDs should generally start with the **feature's name**, followed by a **view own name** and end with full name of the **view type**.
 
@@ -593,7 +616,7 @@ Template: **`featureNameViewNameViewType`**:
 | `Button`    | `couponRedeemButton`            |
 | `Menu`      | `homeAboutUsMenu`               |
 
-**2.3.2.3 Strings**
+**2.5.2.3 Strings**
 
 String names start with a prefix that identifies the section they belong to. For example `registration_email_hint` or `registration_name_hint`. If a string **doesn't belong** to any section, then you should follow the rules below:
 
@@ -604,19 +627,19 @@ String names start with a prefix that identifies the section they belong to. For
 | `title_ `  | A title, i.e. a dialog title         |
 | `action_ ` | An action such as "Save" or "Create" |
 
-**2.3.2.4 Styles and Themes**
+**2.5.2.4 Styles and Themes**
 
 Unless the rest of resources, style names are written in **UpperCamelCase**.
 
-### 2.3.3 Attributes ordering
+### 2.5.3 Attributes ordering
 1. View Id
 2. Style
 3. Layout width and layout height
 4. Other layout attributes, sorted alphabetically
 5. Remaining attributes, sorted alphabetically
 
-## 2.4 Tests style rules
-### 2.4.1 Unit tests
+## 2.6 Tests style rules
+### 2.6.1 Unit tests
 Test classes should match the name of the class the tests are targeting, followed by Test. For example, if we create a test class that contains tests for the `DatabaseHelper`, we should name it `DatabaseHelperTest`.
 
 Test methods are annotated with `@Test` and should generally start with the name of the method that is being tested, followed by a precondition and/or expected behaviour and separate in each path with underscore.
@@ -627,10 +650,6 @@ Test methods are annotated with `@Test` and should generally start with the name
 Precondition and/or expected behaviour may not always be required if the test is clear enough without them.
 
 Sometimes a class may contain a large amount of methods, that at the same time require several tests for each method. In this case, it's recommendable to split up the test class into multiple ones. For example, if the DataManager contains a lot of methods we may want to divide it into DataManagerSignInTest, DataManagerLoadUsersTest, etc. Generally you will be able to see what tests belong together because they have common test fixtures.
-
-
-
-
 
 
 
