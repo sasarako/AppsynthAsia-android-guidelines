@@ -567,6 +567,50 @@ override fun toString(): String {
 ```Kotlin
 override fun toString(): String = "Hey"
 ```
+### 2.4.3 Parameter name for functions
+Define parameter name on every functions if they have optional parameter or some primitive types (Boolean, Int, String).
+```Kotlin
+val remoteHomePopup = HomePopupData(
+                id = 10,
+                htmlContent = "content",
+                frequency = FrequencyData(
+                        value = 1,
+                        unit = "hours"
+                ),
+                shouldShowClose = false,
+                buttonLabel = "label",
+                url = "URL")
+```
+Define parameter name on every functions if they are Koin functions in Module.
+```Kotlin
+  viewModel {
+        HomeViewModel(loadProfileUseCase = get(), reloadCategoriesUseCase = get(),
+                loadHomePopupUseCase = get(), loadHomeComponentsUseCase = get(),
+                loadProductCinemaItemsUseCase = get(), loadFlashSaleCampaignUseCase = get(),
+                reloadFlashSaleTeaserUseCase = get())
+    }
+```
+
+### 2.4.4 UseCase function naming
+Naming public function of UseCases as **excute()**.
+```Kotlin
+interface LoadFacebookCustomerDataUseCase {
+    fun execute(): Single<LoginResponse>
+}
+```
+
+### 2.4.5 Unused parameter in onError function (RxJava)
+For debuging, Keep it nothing if there is no anything in onError function.
+```Kotlin
+	subscribe({
+                    it.userActivityData?.let {
+                        view?.sendUserActivitiesToOneSignal(it)
+                    }
+                }, {
+                    //Keep it nothing (No _ ) for this case
+                })
+```
+Note: **If it's not onError function, Keep using _ on every unused parameter**
 
 ## 2.5 XML style rules
 ### 2.5.1 Use self closing tags
@@ -615,6 +659,17 @@ Template: **`featureNameViewNameViewType`**:
 | `ImageView` | `loginAppLogoImageView`         |
 | `Button`    | `couponRedeemButton`            |
 | `Menu`      | `homeAboutUsMenu`               |
+
+Able to remove suffix **View** for view and remove **layoutType** for view group if your teammate have agreement with them.
+
+| Element       | Example                     |
+|---------------|-----------------------------|
+| `TextView`    | `registerWellcomeTitleText` |
+| `ImageView`   | `loginAppLogoImage`         |
+| `LinearLayout`| `couponRedeemLayout`        |
+| `Menu`        | `homeAboutUsMenu`           |
+
+**Please use either one way to do in project (Don't mixing)**.
 
 **2.5.2.3 Strings**
 
